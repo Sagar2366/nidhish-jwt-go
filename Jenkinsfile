@@ -6,7 +6,6 @@ pipeline {
                 sh "go version"
             }
             }
-        }
     
     stage('Build code') { 
             steps {
@@ -14,4 +13,5 @@ pipeline {
                 sh 'go . main.go'
             }
             }
+    }
 }
