@@ -7,5 +7,12 @@ pipeline {
             }
             }
         }
-     
+    stages {
+        stage('Build code') { 
+            steps {
+                sh "go mod tidy"
+                sh 'go . main.go'
+            }
+            }
+        }
 }
