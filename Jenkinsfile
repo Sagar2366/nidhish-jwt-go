@@ -7,11 +7,21 @@ pipeline {
             }
             }
     
-    stage('Build code') { 
+    /*stage('Build code') { 
             steps {
                 sh "go mod tidy"
                 sh 'go build -o main.go'
             }
-            }
+            }*/
+
+    stage('Build docker image') { 
+            steps {
+            def customImage = docker.build("go-image:${env.BUILD_ID}")
+
+            customImage.inside {
+                sh 'go mod tidy'
+                }
+                }
+        }
     }
 }
