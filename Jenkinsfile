@@ -10,7 +10,7 @@ pipeline {
     stage('Build code') { 
             steps {
                 sh "go mod tidy"
-                sh 'go . main.go'
+                sh 'go build -o main.go'
             }
             }
     }
