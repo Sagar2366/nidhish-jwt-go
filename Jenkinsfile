@@ -16,11 +16,9 @@ pipeline {
 
     stage('Build docker image') { 
             steps {
-            def customImage = docker.build("go-image:${env.BUILD_ID}")
-
-            customImage.inside {
-                sh 'go mod tidy'
-                }
+                    sh 'sudo docker build -t go-image .'     
+	                echo 'Build Image Completed'
+                    sh 'docker images'
                 }
         }
     }
