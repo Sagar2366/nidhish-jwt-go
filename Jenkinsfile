@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh "java --version"
                 sh "whoami"
-                
+            }
             }
         }
 }
